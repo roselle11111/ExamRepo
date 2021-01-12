@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Update Post</h1>
+  
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="title">Name:</label>
+            <input 
+                formControlName="name"
+                id="name" 
+                type="text" 
+                [(ngModel)]="post.name"
+                class="form-control">
+            <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                <div *ngIf="f.name.errors.required">Title is required.</div>
+            </div>
+        </div>
+         
+        <div class="form-group">
+            <label for="body">Address:</label>
+            <textarea 
+                formControlName="address"
+                id="address" 
+                type="text" 
+                [(ngModel)]="post.address"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f.address.touched && f.address.invalid" class="alert alert-danger">
+                <div *ngIf="f.address.errors.required">Body is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="title">Phone #:</label>
+            <input 
+                formControlName="phoneNumber"
+                id="phoneNumber" 
+                type="text" 
+                [(ngModel)]="post.phoneNumber"
+                class="form-control">
+            <div *ngIf="f.phoneNumber.touched && f.phoneNumber.invalid" class="alert alert-danger">
+                <div *ngIf="f.phoneNumber.errors.required">Title is required.</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

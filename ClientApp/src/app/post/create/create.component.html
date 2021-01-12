@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>Create New Post</h1>
+  
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input 
+                formControlName="name"
+                id="name" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                <div *ngIf="f.name.errors.required">Name is required.</div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea 
+                formControlName="address"
+                id="address" 
+                type="text" 
+                class="form-control"></textarea>
+            <div *ngIf="f.address.touched && f.address.invalid" class="alert alert-danger">
+                <div *ngIf="f.address.errors.required">Address is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone #:</label>
+            <input 
+                formControlName="phoneNumber"
+                id="phoneNumber" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.phoneNumber.touched && f.phoneNumber.invalid" class="alert alert-danger">
+                <div *ngIf="f.phoneNumber.errors.required">Phone Number is required.</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
